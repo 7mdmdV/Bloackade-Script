@@ -61,11 +61,14 @@ local Toggle = Tab2442:CreateToggle({
     Callback = function(Value)
         running = Value
         while running do
-            h.Health = 10000
+            if h.Health <= 1 then
+                h.Health = 10000
+            end
             task.wait(0.1)
         end
     end,
 })
+
 
 local runService = game:GetService("RunService")
 local userInputService = game:GetService("UserInputService")
